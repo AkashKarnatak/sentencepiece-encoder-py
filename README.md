@@ -4,6 +4,20 @@ A Python implementation of a simple SentencePiece encoder that reads a model fil
 on the SentencePiece model protobuf definition and encodes a given string using the
 model's vocabulary with the Viterbi algorithm.
 
+# Why
+Don't you wanna know what happens when the following code is run?
+
+```py
+import sentencepiece as spm
+sp = spm.SentencePieceProcessor()
+
+sp.Load('./xlnet-base-cased-spiece.model')
+
+s = 'today is a great day'
+print([sp.IdToPiece(x) for x in sp.encode(s)])
+print(sp.encode(s))
+```
+
 # Info
 The project relies on Protobuf files compiled from the SentencePiece model definition. To generate the necessary Python files, run the following commands:
 
